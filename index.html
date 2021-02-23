@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.css">
+  </head>
+  <body>
+    <main id="app">
+      <nav class="panel is-success">
+        <p class="panel-heading">
+          KlipCase
+        </p>
+        <a v-for="item in reverseHistory"
+           @click="clickedItem(item)"
+           class="panel-block">
+        <pre>{{item.text}}</pre>
+        <br/>
+        <small>{{item.clipped}}</small>
+      </a>
+      </nav>
+    </main>
+    <script src="./renderer.js"></script>
+  </body>
+  <style>
+   pre {
+      background-color: inherit;
+      padding: 0;
+      font-family: inherit;
+  }
+   html {
+     overflow-y: auto;
+   }
+  .panel-block {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    background-color: hsl(0, 6%, 97%);
+  }
+  .panel-block:hover {
+    cursor: pointer;
+    background-color: hsl(0, 0%, 76%);
+  }
+  </style>
+</html>
